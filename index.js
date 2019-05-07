@@ -53,15 +53,18 @@ function total() {
 }
 
 function removeFromCart(item) {
+  var originalLength = cart.length
   for (var i = 0; i < cart.length; i++) {
     if (cart[i]['itemName'] == item) {
       cart.splice(i,1)
     }
-    else {
-      return "That item is not in your cart."
-    }
   }
-  return cart
+  if (cart.length == originalLength) {
+    return "That item is not in your cart."
+  } else {
+    return cart
+  }
+  
 }
 
 function placeOrder(cardNumber) {
